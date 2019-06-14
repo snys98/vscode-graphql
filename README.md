@@ -1,3 +1,5 @@
+# Note: This is a personal modified revision!
+
 # VSCode GraphQL
 
 GraphQL extension VSCode built with the aim to tightly integrate the [GraphQL Ecosystem](https://www.prisma.io/docs/graphql-ecosystem/) with VSCode for an awesome developer experience.

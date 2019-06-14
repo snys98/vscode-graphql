@@ -1,159 +1,161 @@
 {
-  "name": "vscode-graphql",
-  "version": "0.1.8",
-  "preview": true,
-  "private": false,
-  "license": "MIT",
-  "displayName": "GraphQL",
-  "keywords": [
-    "multi-root ready"
-  ],
-  "description": "GraphQL extension for VSCode adds syntax highlighting, validation, and language features like go to definition, hover information and autocompletion for graphql projects. This extension also works with queries annotated with gql tag.",
-  "icon": "assets/images/logo.png",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/prismagraphql/vscode-graphql"
-  },
-  "homepage": "https://github.com/prismagraphql/vscode-graphql/blob/master/README.md",
-  "galleryBanner": {
-    "color": "#032539",
-    "theme": "dark"
-  },
-  "publisher": "Prisma",
-  "engines": {
-    "vscode": "1.34.0"
-  },
-  "categories": [
-    "Programming Languages",
-    "Snippets",
-    "Linters",
-    "Themes",
-    "Other"
-  ],
-  "activationEvents": [
-    "onCommand:extension.isDebugging",
-    "onCommand:extension.contentProvider",
-    "onLanguage:graphql",
-    "workspaceContains:**/.graphqlconfig",
-    "workspaceContains:**/.graphqlconfig.yml",
-    "workspaceContains:**/.graphqlconfig.yaml"
-  ],
-  "main": "./out/extension",
-  "contributes": {
-    "languages": [
-      {
-        "id": "graphql",
-        "extensions": [
-          ".gql",
-          ".graphql",
-          ".prisma"
-        ],
-        "aliases": [
-          "GraphQL",
-          "graphql"
-        ],
-        "configuration": "./language/language-configuration.json"
-      }
+    "name": "vscode-graphql-language-service",
+    "version": "0.1.9",
+    "preview": true,
+    "private": false,
+    "license": "MIT",
+    "displayName": "GraphQL",
+    "keywords": [
+        "multi-root ready"
     ],
-    "grammars": [
-      {
-        "language": "graphql",
-        "path": "./grammars/graphql.json",
-        "scopeName": "source.graphql"
-      },
-      {
-        "injectTo": [
-          "source.js",
-          "source.ts",
-          "source.js.jsx",
-          "source.tsx",
-          "source.vue"
-        ],
-        "scopeName": "inline.graphql",
-        "path": "./grammars/graphql.js.json",
-        "embeddedLanguages": {
-          "meta.embedded.block.graphql": "graphql"
-        }
-      }
-    ],
-    "snippets": [
-      {
-        "language": "graphql",
-        "path": "./snippets/graphql.json"
-      }
-    ],
-    "configuration": {
-      "vscode-graphql.debug": {
-        "type": [
-          "boolean",
-          "null"
-        ],
-        "title": "VSCode GraphQL - Debug Mode",
-        "default": false,
-        "description": "Enable debug logs"
-      },
-      "vscode-graphql.trace.server": {
-        "type": [
-          "string"
-        ],
-        "title": "VSCode GraphQL - Trace Language Server",
-        "default": "off",
-        "description": "Enable tracing for language server"
-      }
+    "description": "this is a *Modified* Version of GraphQL, with better intellisense feature(personal)",
+    "icon": "assets/images/logo.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/prismagraphql/vscode-graphql"
     },
-    "commands": [
-      {
-        "command": "extension.isDebugging",
-        "title": "VSCode GraphQL - Is Debugging?"
-      },
-      {
-        "command": "extension.contentProvider",
-        "title": "Execute GraphQL Operations"
-      }
+    "homepage": "https://github.com/prismagraphql/vscode-graphql/blob/master/README.md",
+    "galleryBanner": {
+        "color": "#032539",
+        "theme": "dark"
+    },
+    "publisher": "Lulus",
+    "engines": {
+        "vscode": "^1.35.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Snippets",
+        "Linters",
+        "Themes",
+        "Other"
     ],
-    "typescriptServerPlugins": [
-      {
-        "name": "@divyenduz/ts-graphql-plugin"
-      }
-    ]
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "npm run compile && node ./node_modules/vscode/bin/test",
-    "package": "vsce package"
-  },
-  "devDependencies": {
-    "@types/capitalize": "1.0.1",
-    "@types/dotenv": "6.1.0",
-    "@types/graphql": "14.2.0",
-    "@types/mocha": "2.2.42",
-    "@types/node": "7.10.6",
-    "@types/ws": "5.1.2",
-    "tslint": "5.8.0",
-    "typescript": "3.4.1",
-    "vsce": "1.45.1",
-    "vscode": "1.1.34"
-  },
-  "dependencies": {
-    "@divyenduz/graphql-language-service-server": "1.2.6",
-    "@divyenduz/ts-graphql-plugin": "0.1.0",
-    "apollo-cache-inmemory": "1.2.6",
-    "apollo-client": "2.3.5",
-    "apollo-link": "1.2.11",
-    "apollo-link-http": "1.5.14",
-    "apollo-link-ws": "1.0.8",
-    "babel-polyfill": "6.26.0",
-    "capitalize": "1.0.0",
-    "dotenv": "6.2.0",
-    "graphql": "0.13.2",
-    "graphql-config": "2.1.0",
-    "graphql-config-extension-prisma": "0.3.0",
-    "graphql-tag": "2.9.2",
-    "subscriptions-transport-ws": "0.9.14",
-    "vscode-languageclient": "4.1.3",
-    "ws": "6.0.0"
-  }
+    "activationEvents": [
+        "onCommand:extension.isDebugging",
+        "onCommand:extension.contentProvider",
+        "onLanguage:graphql",
+        "workspaceContains:**/.graphqlconfig",
+        "workspaceContains:**/.graphqlconfig.yml",
+        "workspaceContains:**/.graphqlconfig.yaml"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "languages": [
+            {
+                "id": "graphql",
+                "extensions": [
+                    ".gql",
+                    ".graphql",
+                    ".prisma"
+                ],
+                "aliases": [
+                    "GraphQL",
+                    "graphql"
+                ],
+                "configuration": "./language/language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "graphql",
+                "path": "./grammars/graphql.json",
+                "scopeName": "source.graphql"
+            },
+            {
+                "injectTo": [
+                    "source.js",
+                    "source.ts",
+                    "source.js.jsx",
+                    "source.tsx",
+                    "source.vue"
+                ],
+                "scopeName": "inline.graphql",
+                "path": "./grammars/graphql.js.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.graphql": "graphql"
+                }
+            }
+        ],
+        "snippets": [
+            {
+                "language": "graphql",
+                "path": "./snippets/graphql.json"
+            }
+        ],
+        "configuration": {
+            "vscode-graphql.debug": {
+                "type": [
+                    "boolean",
+                    "null"
+                ],
+                "title": "VSCode GraphQL - Debug Mode",
+                "default": false,
+                "description": "Enable debug logs"
+            },
+            "vscode-graphql.trace.server": {
+                "type": [
+                    "string"
+                ],
+                "title": "VSCode GraphQL - Trace Language Server",
+                "default": "off",
+                "description": "Enable tracing for language server"
+            }
+        },
+        "commands": [
+            {
+                "command": "extension.isDebugging",
+                "title": "VSCode GraphQL - Is Debugging?"
+            },
+            {
+                "command": "extension.contentProvider",
+                "title": "VSCode GraphQL - Execute GraphQL Operations"
+            }
+        ],
+        "typescriptServerPlugins": [
+            {
+                "name": "@divyenduz/ts-graphql-plugin"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test",
+        "package": "vsce package"
+    },
+    "devDependencies": {
+        "@types/capitalize": "1.0.1",
+        "@types/chai": "^4.1.7",
+        "@types/dotenv": "6.1.0",
+        "@types/graphql": "14.2.0",
+        "@types/mocha": "2.2.42",
+        "@types/node": "^7.10.6",
+        "@types/ws": "5.1.2",
+        "chai": "^4.2.0",
+        "tslint": "5.8.0",
+        "typescript": "3.4.1",
+        "vsce": "1.45.1",
+        "vscode": "1.1.34"
+    },
+    "dependencies": {
+        "@divyenduz/ts-graphql-plugin": "0.1.0",
+        "apollo-cache-inmemory": "1.2.6",
+        "apollo-client": "2.3.5",
+        "apollo-link": "1.2.11",
+        "apollo-link-http": "1.5.14",
+        "apollo-link-ws": "1.0.8",
+        "babel-polyfill": "6.26.0",
+        "capitalize": "1.0.0",
+        "dotenv": "6.2.0",
+        "graphql": "0.13.2",
+        "graphql-config": "2.2.1",
+        "graphql-config-extension-prisma": "0.3.0",
+        "graphql-language-service-server": "file:./modified_node_modules/graphql-language-service-server",
+        "graphql-tag": "2.9.2",
+        "subscriptions-transport-ws": "0.9.14",
+        "vscode-languageclient": "4.1.3",
+        "ws": "6.0.0"
+    }
 }
